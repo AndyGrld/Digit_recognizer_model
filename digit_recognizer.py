@@ -27,43 +27,43 @@ plt.axis('off')
 plt.show()
 
 # splitting data
-# X_train, X_test, y_train, y_test = train_test_split(X, y)
+X_train, X_test, y_train, y_test = train_test_split(X, y)
 
 # Training models
-# knn = KNeighborsClassifier(n_neighbors=25, weights='uniform')
-# svm = SVC()
-# tree = DecisionTreeClassifier()
+knn = KNeighborsClassifier(n_neighbors=25, weights='uniform')
+svm = SVC()
+tree = DecisionTreeClassifier()
 
 
 # print('training data')
-# knn.fit(X_train, y_train)
-# svm.fit(X_train, y_train)
-# tree.fit(X_train, y_train)
-# knn_pred = knn.predict(X_test)
-# svm_pred = svm.predict(X_test)
-# tree_pred = tree.predict(X_test)
+knn.fit(X_train, y_train)
+svm.fit(X_train, y_train)
+tree.fit(X_train, y_train)
+knn_pred = knn.predict(X_test)
+svm_pred = svm.predict(X_test)
+tree_pred = tree.predict(X_test)
 
 # Loading trained models
-print('loading model for prediction')
-knn = pickle.load(open(r'digit_recognizer_models/knn.p', 'rb'))
+# print('loading model for prediction')
+# knn = pickle.load(open(r'digit_recognizer_models/knn.p', 'rb'))
 
 # print('saving data')
-# pickle.dump(knn, open(r'digit_recognizer_models/knn.p', 'wb'))
-# pickle.dump(svm, open(r'digit_recognizer_models/svc.p', 'wb'))
-# pickle.dump(tree, open(r'digit_recognizer_models/tree.p', 'wb'))
+pickle.dump(knn, open(r'digit_recognizer_models/knn.p', 'wb'))
+pickle.dump(svm, open(r'digit_recognizer_models/svc.p', 'wb'))
+pickle.dump(tree, open(r'digit_recognizer_models/tree.p', 'wb'))
 
-# print('Accuracy svc:', accuracy_score(svm_pred, y_test) * 100)
-# print('Accuracy knn:', accuracy_score(knn_pred, y_test) * 100)
-# print('Accuracy tree:', accuracy_score(tree_pred, y_test) * 100)
+print('Accuracy svc:', accuracy_score(svm_pred, y_test) * 100)
+print('Accuracy knn:', accuracy_score(knn_pred, y_test) * 100)
+print('Accuracy tree:', accuracy_score(tree_pred, y_test) * 100)
 
 # Predict X1 for test_dataframe(test_df)
 print('predicting')
 ans = knn.predict(X1)
 
 # print('writing to csv file')
-# with open('digit_answers.csv', 'w') as file:
-#     file.write('ImageId,Label\n')
-#     for index, digit in enumerate(ans):
-#         file.write(f'{index + 1},{digit}\n')
-#
-# print('done')
+with open('digit_answers.csv', 'w') as file:
+    file.write('ImageId,Label\n')
+    for index, digit in enumerate(ans):
+        file.write(f'{index + 1},{digit}\n')
+
+print('done')
