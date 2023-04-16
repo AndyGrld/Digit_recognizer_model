@@ -47,7 +47,7 @@ tree_pred = tree.predict(X_test)
 # print('loading model for prediction')
 # knn = pickle.load(open(r'digit_recognizer_models/knn.p', 'rb'))
 
-# print('saving data')
+print('saving data')
 pickle.dump(knn, open(r'digit_recognizer_models/knn.p', 'wb'))
 pickle.dump(svm, open(r'digit_recognizer_models/svc.p', 'wb'))
 pickle.dump(tree, open(r'digit_recognizer_models/tree.p', 'wb'))
@@ -60,7 +60,7 @@ print('Accuracy tree:', accuracy_score(tree_pred, y_test) * 100)
 print('predicting')
 ans = knn.predict(X1)
 
-# print('writing to csv file')
+print('writing to csv file')
 with open('digit_answers.csv', 'w') as file:
     file.write('ImageId,Label\n')
     for index, digit in enumerate(ans):
