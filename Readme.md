@@ -1,5 +1,8 @@
 # Building a digit recognizer model
 
+## Getting started
+pip install -r requirements.txt
+
 ## digit_recognizer.py
 Used KNeighbours Classifier, Support Vector Classifier and a Decision Tree Classifier to predict handwritten digits.
 Checked the accuracy of the three and saved the models as '.p' files using pickle library.
